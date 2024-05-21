@@ -851,24 +851,22 @@ function OpenBillingMenu()
     local player, distance = ESX.Game.GetClosestPlayer()
 
     
-    print("Player: ", player, " Distance: ", distance) -- Debugging line
+    --print("Player: ", player, " Distance: ", distance) -- Debugging line
 
     if player ~= -1 and distance <= 3.0 then
         local target = GetPlayerServerId(player)
-        print("Avant d'ouvrir le dialogue") -- Debugging line
+        --print("Avant d'ouvrir le dialogue") -- Debugging line
 
         local input = exports.ox_lib:inputDialog('Amende L.S.P.D', {
-            --{ type = 'input', label = 'Libellé', placeholder = 'Amende L.S.P.D' },
             { type = 'number', label = 'Montant', placeholder = 'Montant de la facture' }
         })
-        print("Après avoir tenté d'ouvrir le dialogue") -- Debugging line
+        --print("Après avoir tenté d'ouvrir le dialogue") -- Debugging line
 
         if input then
-            --local label = input[1]
             local amount = tonumber(input[1])
 
             if amount then
-                TriggerServerEvent('esx_billing:sendBill', target, 'society_lspd', 'Amende L.S.P.D', amount)
+                TriggerServerEvent('esx_billing:sendBill', target, 'society_lspd', 'Amende '..Config.pos.menu.title, amount)
                 ESX.ShowNotification('Facture envoyer')
             else
                 ESX.ShowNotification('Informations de la facture incorrectes')
