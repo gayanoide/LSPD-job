@@ -55,6 +55,11 @@ Config.pos = {
 		texte = "Poste de Police",
 		distance = 10
 	},
+	
+	coffre = { 
+		position = {x = -339.81, y = -264.32, z = 32.71},			
+		poids = 10,
+	},
 
 
 

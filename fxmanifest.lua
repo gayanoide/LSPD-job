@@ -15,6 +15,7 @@ client_scripts {
     'vest.lua',
     'show.lua',
     'accueil.lua',
+    'coffre.lua',
 }
 
 server_scripts {
